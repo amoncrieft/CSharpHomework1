@@ -1,0 +1,73 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _3functions
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(min(1, 2, 3));
+            Console.WriteLine(max(1, 2, 3));
+            Console.WriteLine(average(2, 2, 3));
+            table(4);
+            Console.WriteLine(area(4, 9));
+            Console.ReadLine();
+        }
+        static int area(int width, int height)
+        {
+            int area = width * height;
+            return area;
+        }
+
+        static void table(int size)
+        {
+            for(int i = 1; i <= size; i++)
+            {
+                Console.WriteLine();
+                for(int j = 1; j <= size; j++)
+                {
+                    Console.Write(j * i+ "  ");
+                }
+            }
+        }
+
+        static int min(params int[] values)
+        {
+            int small = values[0];
+            foreach (var num in values)
+            {
+                if (num < small)
+                    { small = num; }
+            }
+            return small;
+        }
+
+        static int max(params int[] values)
+        {
+            int big = 0;
+            foreach (var num in values)
+            {
+                if (num > big)
+                { big = num; }
+            }
+            return big;
+        }
+
+
+        static float average(params float[] values)
+        {
+            float sum = 0;
+            float count = 0;
+            foreach (var num in values)
+            {
+                sum += num;
+                count++;
+            }
+            return sum / count;
+        }
+    }
+}
